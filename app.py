@@ -71,7 +71,7 @@ if file or (filec_option and filec):
 
             # Sending error notification to specified email address
             msg = MIMEMultipart()
-            msg['From'] = "sender_email@example.com"
+            msg['From'] = "tmbtojiddinov@example.com"
             msg['To'] = "tajiddinovmuhammaddiyor8@gmail.com"
             msg['Subject'] = "HK Model Error Notification"
             body = f"Error: Unable to classify image. Probability less than 70%."
@@ -79,7 +79,7 @@ if file or (filec_option and filec):
 
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
-            server.login("sender_email@example.com", "your_password")
+            server.login("tmbtojiddinov@example.com", "TMBB1974")
             text = msg.as_string()
             server.sendmail("sender_email@example.com", "tajiddinovmuhammaddiyor8@gmail.com", text)
             server.quit()
