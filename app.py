@@ -45,8 +45,6 @@ if filec_option:
 
 file = st.file_uploader("Rasm yuklash", type=['png', 'jpeg', 'gif', 'svg', 'jpg'])
 
-error_message = st.text_area("Xato xabarini yozing")
-
 if file or (filec_option and filec):
     if file:
         img = PILImage.create(file)
@@ -66,6 +64,7 @@ if file or (filec_option and filec):
         st.plotly_chart(fig)
     else:
         st.info(f"🆙 Rasmdagi jonivorni tasniflay olmadim. Bu noyob tur yoki hozirgi mashg'ulot ma'lumotlarimdan tashqari biror narsa bo'lishi mumkin 😔")
+        error_message = st.text_area("Xato xabarini yozing")
 
         if st.button("Send"):
             st.error("🚨 Xatolik! Iltimos, rasmingizni tekshirib qayta yuklang yoki kamerani ishlatib suratga oling.")
