@@ -63,13 +63,12 @@ if file or (filec_option and filec):
         fig = px.bar(x=names, y=probs*100)
         st.plotly_chart(fig)
     else:
-        st.info(f"🆙 Rasmdagi jonivorni tasniflay olmadim. Bu noyob tur yoki hozirgi mashg'ulot ma'lumotlarimdan tashqari biror narsa bo'lishi mumkin 😔")
+        st.error(f"🚨 Rasmdagi jonivorni tasniflay olmadim. Bu noyob tur yoki hozirgi mashg'ulot ma'lumotlarimdan tashqari biror narsa bo'lishi mumkin")
         error_message = st.text_area("Agar model xato ishlasa iltimos bizga xabar bering")
 
         if st.button("Send"):
-            st.error("🚨 Xatolik! Iltimos, rasmingizni tekshirib qayta yuklang yoki kamerani ishlatib suratga oling.")
             # Send error message and image (if available) to the specified email address
             email = "tajiddinovmuhammaddiyor8@gmail.com"
-            st.write(f"Xatolikni aytganingiz uchun rahmat.")
+            st.info(f"Xatolikni aytganingiz uchun rahmat.")
             if error_message:
                 st.write("")
