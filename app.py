@@ -16,14 +16,6 @@ st.set_page_config(
 )
 
 
-button_clicked = st.sidebar.button("Telegram", help="Mening Telegram hisobim")
-if button_clicked:
-    webbrowser.open_new_tab("https://t.me/tojiddinov_muhammad")  
-
-button_clicked = st.sidebar.button("Instagram", help="Mening Instagram hisobim")
-if button_clicked:
-    webbrowser.open_new_tab("https://instagram.com/tojiddinov_muhammad__")  
-
 names = {
     "Camel": "Tuya 🐫",
     "Deer": "Kiyik 🦌",
@@ -51,6 +43,14 @@ if filec_option:
     filec = st.camera_input("Suratga oling")
 
 file = st.file_uploader("Rasm yuklash", type=['png', 'jpeg', 'gif', 'svg', 'jpg'])
+
+button_clicked = st.sidebar.button("Telegram", help="Mening Telegram hisobim")
+if button_clicked:
+    webbrowser.open_new_tab("https://t.me/tojiddinov_muhammad")  
+
+button_clicked = st.sidebar.button("Instagram", help="Mening Instagram hisobim")
+if button_clicked:
+    webbrowser.open_new_tab("https://instagram.com/tojiddinov_muhammad__")  
 
 if file or (filec_option and filec):
     if file:
