@@ -38,19 +38,15 @@ st.subheader('', divider='rainbow')
 
 st.caption('Salom bu :blue[HK modeli] :sunglasses: Model siz joylagan rasmlaringizni klassifikatsiya qilish uchun mo‘ljallangan bo‘lib quyidagi 13 ta hayvoni taniy oladi :sparkles: :underline[Tuya, Jiraf, Karkidon, Echki, Ot, Kenguru, Koala, Quyon, Qo‘y, Zebra, Maymun, Kiyik, Fil]:blue ')
 
+st.markdown("[Telegram](https://t.me/tojiddinov_muhammad)")
+st.markdown("[Instagram](https://instagram.com/tojiddinov_muhammad__)")
+
 filec_option = st.checkbox("Kamerani ishlatish", value=False)
 if filec_option:
     filec = st.camera_input("Suratga oling")
 
 file = st.file_uploader("Rasm yuklash", type=['png', 'jpeg', 'gif', 'svg', 'jpg'])
 
-button_clicked = st.sidebar.button("Telegram", help="Mening Telegram hisobim")
-if button_clicked:
-    webbrowser.open_new_tab("https://t.me/tojiddinov_muhammad")  
-
-button_clicked = st.sidebar.button("Instagram", help="Mening Instagram hisobim")
-if button_clicked:
-    webbrowser.open_new_tab("https://instagram.com/tojiddinov_muhammad__")  
 
 if file or (filec_option and filec):
     if file:
