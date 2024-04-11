@@ -1,11 +1,10 @@
 import streamlit as st
 from fastai.vision.all import *
 import plotly.express as px
-import pandas as pd
-import numpy as np
-import pydeck as pdk
-import pathlib
 import webbrowser
+import pathlib
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
