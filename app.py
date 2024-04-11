@@ -55,7 +55,7 @@ if file or (filec_option and filec):
             st.image(file)
 
         elif filec_option:
-            img = PILImage.create(file)
+            img = PILImage.create(filec)
 
         model = load_learner("animals_model.pkl")
 
