@@ -38,7 +38,7 @@ st.subheader('', divider='rainbow')
 
 st.caption('Salom bu :blue[HK modeli] :sunglasses: Model siz joylagan rasmlaringizni klassifikatsiya qilish uchun mo‘ljallangan bo‘lib quyidagi 13 ta hayvoni taniy oladi :sparkles: :underline[Tuya, Jiraf, Karkidon, Echki, Ot, Kenguru, Koala, Quyon, Qo‘y, Zebra, Maymun, Kiyik, Fil]:blue ')
 
-st.markdown(":blue[Me:] [Telegram](https://t.me/tojiddinov_muhammad) :red[and] [Instagram](https://instagram.com/tojiddinov_muhammad__)")
+st.markdown(":red[Me:] [Telegram](https://t.me/tojiddinov_muhammad) :red[and] [Instagram](https://instagram.com/tojiddinov_muhammad__)")
 
 filec_option = st.checkbox("Kamerani ishlatish", value=False)
 if filec_option:
