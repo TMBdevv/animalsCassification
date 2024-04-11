@@ -49,36 +49,40 @@ if filec_option:
 file = st.file_uploader("Rasm yuklash", type=['png', 'jpeg', 'gif', 'svg', 'jpg'])
 
 if file or (filec_option and filec):
-    if file:
-        img = PILImage.create(file)
-        st.image(file)
+    try:
+        if file:
+            img = PILImage.create(file)
+            st.image(file)
 
-    elif filec_option:
-        img = PILImage.create(file)
-        
-    model = load_learner("animals_model.pkl")
+        elif filec_option:
+            img = PILImage.create(file)
 
-    pred, pred_id, probs = model.predict(img)
+        model = load_learner("animals_model.pkl")
 
-    if probs[pred_id]*100 > 70:
-        st.success(f"Bashorat: {names.get(pred)}")
-        st.info(f"Ehtimoliligi: {probs[pred_id]*100:.0f}%-ni tashkil etadi 📈")
-        fig = px.bar(x=names, y=probs*100)
-        st.plotly_chart(fig)
-    else:
-        st.info(f"🆙 Rasmdagi jonivorni tasniflay olmadim. Bu noyob tur yoki hozirgi mashg'ulot ma'lumotlarimdan tashqari biror narsa bo'lishi mumkin 😔")
-        
-        # Sending error notification to specified email address
-        msg = MIMEMultipart()
-        msg['From'] = "sender_email@example.com"
-        msg['To'] = "tajiddinovmuhammaddiyor8@gmail.com"
-        msg['Subject'] = "HK Model Error Notification"
-        body = f"Error: Unable to classify image. Probability less than 70%."
-        msg.attach(MIMEText(body, 'plain'))
-        
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login("tmbtojiddinov@example.com", "TMBB1974")
-        text = msg.as_string()
-        server.sendmail("tmbtojiddinov@example.com", "tajiddinovmuhammaddiyor8@gmail.com", text)
-        server.quit()
+        pred, pred_id, probs = model.predict(img)
+
+        if probs[pred_id]*100 > 70:
+            st.success(f"Bashorat: {names.get(pred)}")
+            st.info(f"Ehtimoliligi: {probs[pred_id]*100:.0f}%-ni tashkil etadi 📈")
+            fig = px.bar(x=names, y=probs*100)
+            st.plotly_chart(fig)
+        else:
+            st.info(f"🆙 Rasmdagi jonivorni tasniflay olmadim. Bu noyob tur yoki hozirgi mashg'ulot ma'lumotlarimdan tashqari biror narsa bo'lishi mumkin 😔")
+
+            # Sending error notification to specified email address
+            msg = MIMEMultipart()
+            msg['From'] = "sender_email@example.com"
+            msg['To'] = "tajiddinovmuhammaddiyor8@gmail.com"
+            msg['Subject'] = "HK Model Error Notification"
+            body = f"Error: Unable to classify image. Probability less than 70%."
+            msg.attach(MIMEText(body, 'plain'))
+
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login("sender_email@example.com", "your_password")
+            text = msg.as_string()
+            server.sendmail("sender_email@example.com", "tajiddinovmuhammaddiyor8@gmail.com", text)
+            server.quit()
+
+    except Exception as e:
+        st.error(f"Error: {e}")
