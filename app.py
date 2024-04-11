@@ -45,6 +45,7 @@ if filec_option:
 
 file = st.file_uploader("Rasm yuklash", type=['png', 'jpeg', 'gif', 'svg', 'jpg'])
 
+error_message = st.text_area("Xato xabarini yozing")
 
 if file or (filec_option and filec):
     if file:
@@ -67,10 +68,9 @@ if file or (filec_option and filec):
         st.info(f"🆙 Rasmdagi jonivorni tasniflay olmadim. Bu noyob tur yoki hozirgi mashg'ulot ma'lumotlarimdan tashqari biror narsa bo'lishi mumkin 😔")
 
         if st.button("Send"):
-            error_message = st.text_area("Xato xabarini yozing")
             st.error("🚨 Xatolik! Iltimos, rasmingizni tekshirib qayta yuklang yoki kamerani ishlatib suratga oling.")
             # Send error message and image (if available) to the specified email address
             email = "tajiddinovmuhammaddiyor8@gmail.com"
-            st.write(f"Xato xabari {email} ga jo'natildi.")
+            st.write(f"Xatolikni aytganingiz uchun rahmat. Xato xabari {email} ga jo'natildi.")
             if error_message:
-                st.write(f"Xato xabari: {error_message}")
+                st.write("")
